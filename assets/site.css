@@ -81,7 +81,11 @@ h3 { font-size: 1.7rem; }
 .hero {
   position: relative; min-height: 100svh; display: grid; align-items: center;
   background: url("img/hero-tetons.jpg") center 30% / cover no-repeat;
+  background-image: image-set(url("img/hero-tetons.webp") type("image/webp"), url("img/hero-tetons.jpg") type("image/jpeg"));
   overflow: hidden;
+}
+@media (max-width: 900px) {
+  .hero { background-image: image-set(url("img/hero-tetons-sm.webp") type("image/webp"), url("img/hero-tetons.jpg") type("image/jpeg")); }
 }
 .hero::before {
   content: ""; position: absolute; inset: 0;
@@ -287,3 +291,21 @@ article.post li { margin-bottom: .6rem; }
 .social svg { width: 16px; height: 16px; }
 .follow { font-family: var(--label); letter-spacing: .25em; text-transform: uppercase; font-size: .72rem; color: var(--gold); margin: 1.6rem 0 .7rem; }
 footer .social a { padding: .35rem .7rem; }
+
+/* mobile menu */
+.menu-btn { display: none; background: none; border: 1px solid rgba(236,228,212,.3); color: var(--ink); width: 40px; height: 36px; border-radius: 2px; cursor: pointer; padding: 0; }
+.menu-btn span, .menu-btn span::before, .menu-btn span::after { display: block; width: 18px; height: 2px; background: currentColor; margin: 0 auto; position: relative; transition: transform .25s, background .25s; }
+.menu-btn span::before, .menu-btn span::after { content: ""; position: absolute; left: 0; }
+.menu-btn span::before { top: -6px; } .menu-btn span::after { top: 6px; }
+.nav.open .menu-btn span { background: transparent; }
+.nav.open .menu-btn span::before { transform: translateY(6px) rotate(45deg); }
+.nav.open .menu-btn span::after { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu { display: none; }
+@media (max-width: 760px) {
+  .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+  .nav.open { background: rgba(11,18,32,.97); border-color: var(--line); }
+  .nav.open .mobile-menu { display: block; border-top: 1px solid var(--line); padding: .4rem 16px 1rem; }
+  .mobile-menu a { display: block; padding: .85rem 0; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none;
+    font-family: var(--label); letter-spacing: .2em; text-transform: uppercase; font-size: .85rem; }
+  .mobile-menu a:last-child { border-bottom: 0; }
+}

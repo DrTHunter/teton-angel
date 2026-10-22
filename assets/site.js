@@ -7,6 +7,26 @@
     onScroll();
   }
 
+  // Mobile menu: a toggle plus a panel built from the nav's own links.
+  if (nav) {
+    var ul = nav.querySelector("ul");
+    var btn = document.createElement("button");
+    btn.className = "menu-btn"; btn.type = "button";
+    btn.setAttribute("aria-label", "Menu"); btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = "<span></span>";
+    var li = document.createElement("li"); li.appendChild(btn); ul.appendChild(li);
+    var panel = document.createElement("div");
+    panel.className = "mobile-menu"; panel.id = "mobile-menu";
+    btn.setAttribute("aria-controls", panel.id);
+    ul.querySelectorAll("a:not(.btn)").forEach(function (a) {
+      var c = a.cloneNode(true); c.addEventListener("click", function () { setOpen(false); }); panel.appendChild(c);
+    });
+    nav.appendChild(panel);
+    var setOpen = function (open) { nav.classList.toggle("open", open); btn.setAttribute("aria-expanded", String(open)); };
+    btn.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+  }
+
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
