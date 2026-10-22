@@ -76,3 +76,11 @@
   window.addEventListener("resize", size);
   draw();
 })();
+
+// Count Amazon "buy" clicks as a GA4 key event candidate.
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest('a[href*="amazon.com"]');
+  if (a && typeof gtag === "function") {
+    gtag("event", "buy_click", { link_url: a.href, link_text: (a.textContent || "").trim().slice(0, 60), page_path: location.pathname });
+  }
+});
