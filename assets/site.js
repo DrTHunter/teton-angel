@@ -22,6 +22,22 @@
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getFullYear();
 
+  var lb = document.getElementById("lightbox");
+  if (lb) {
+    var lbImg = lb.querySelector("img"), lbCap = lb.querySelector(".lb-cap");
+    var close = function () { lb.hidden = true; lbImg.src = ""; };
+    document.querySelectorAll(".gallery a").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var img = a.querySelector("img"), cap = a.parentElement.querySelector("figcaption");
+        lbImg.src = a.href; lbImg.alt = img.alt; lbCap.textContent = cap ? cap.textContent : "";
+        lb.hidden = false;
+      });
+    });
+    lb.addEventListener("click", function (e) { if (e.target !== lbImg) close(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) close(); });
+  }
+
   var canvas = document.getElementById("stars");
   if (!canvas) return;
   var ctx = canvas.getContext("2d");
