@@ -3,7 +3,7 @@
 Landing page and blog for **Teton Angel: The Heart of the West Reborn**, a novel by Roland Hunter.
 
 - Buy: https://www.amazon.com/dp/B0GWW3YM25
-- Static HTML/CSS/JS, no build step. Served with GitHub Pages from `main`.
+- Static HTML/CSS/JS, no build step. Served with GitHub Pages from `main` at https://tetonangel.com (DNS at Porkbun: ALIAS @ and CNAME www -> drthunter.github.io).
 
 ## Adding a blog post
 
