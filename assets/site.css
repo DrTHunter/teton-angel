@@ -278,3 +278,12 @@ article.post li { margin-bottom: .6rem; }
 .back { display: inline-block; margin-bottom: 2rem; font-family: var(--label); letter-spacing: .2em; text-transform: uppercase; font-size: .72rem; color: var(--ink-soft); text-decoration: none; }
 .back:hover { color: var(--gold-hot); }
 .spoiler-note { font-size: .9rem !important; color: var(--ink-faint) !important; font-style: italic; }
+
+/* social links */
+.social { display: flex; flex-wrap: wrap; gap: .7rem; }
+.social a { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .9rem; border: 1px solid rgba(217,169,91,.35); color: var(--ink-soft); text-decoration: none;
+  font-family: var(--label); letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; transition: color .2s, border-color .2s; }
+.social a:hover { color: var(--gold-hot); border-color: var(--gold); }
+.social svg { width: 16px; height: 16px; }
+.follow { font-family: var(--label); letter-spacing: .25em; text-transform: uppercase; font-size: .72rem; color: var(--gold); margin: 1.6rem 0 .7rem; }
+footer .social a { padding: .35rem .7rem; }
