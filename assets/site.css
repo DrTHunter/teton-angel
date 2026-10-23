@@ -323,3 +323,7 @@ footer .social a { padding: .35rem .7rem; }
 /* format buttons */
 .formats { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; }
 .formats-note { margin: 1.2rem auto 0 !important; font-family: var(--label); letter-spacing: .2em; text-transform: uppercase; font-size: .72rem; color: var(--ink-soft) !important; }
+
+/* "He Painted It First" header: the painting sits behind the title, faded like the other post headers */
+.post-hero-painted { background-position: center 35%; }
+.post-hero-painted::before { background: linear-gradient(rgba(11,18,32,.55), rgba(11,18,32,.7) 45%, var(--night)); }
